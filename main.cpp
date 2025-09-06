@@ -31,7 +31,7 @@ int main()
 	string         title;
 	char           titleChar;
 	string			searchInput;
-	//int				linearSearchIndex;
+	int				linearSearchIndex;
 
 
 	// Class heading banner
@@ -189,13 +189,13 @@ int main()
 					}
 
 					linearSearchIndex = linearSearch(bookTitlesVecListLowerCase, searchInput);
-					if (LinearSearchIndex == -1)
+					if (linearSearchIndex == -1)
 					{
-						cout << endl << searchInput << " was not found!"
+						cout << endl << searchInput << " was not found!";
 					}
 					else
 					{
-						cout << "FOUND: " << bookTitlesVecList.at(linearSearchIndex) << endl; << "Index: " << linearSearchIndex;
+						cout << "FOUND: " << bookTitlesVecList.at(linearSearchIndex) << endl << "Index: " << linearSearchIndex;
 					}
 
 					cout << endl;
