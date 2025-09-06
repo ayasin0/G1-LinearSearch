@@ -5,35 +5,24 @@
 *******************************************************************************/
 
 int linearSearch( const vector<string>& list,
-					   const string& key )
-
+					 	const string& key )
 {
-/***************************************************************************
-* CONSTANTS
-****************************************************************************/
+	bool foundMatch = false; //Checks to see if there is a partial match in the book list
+	int index = 0; //Index of what title the program is currently on
 
 
-/***************************************************************************
-* VARIABLES
-****************************************************************************/
-
-int x = 0;
-
-	for(int index = 0; index < int(list.size()); index += 1)
+	do //Checks the key again against the current title
 	{
-		int i = 0;
-		do
-		{
-			i++;
-			list[index].substr(0, 
-		}
-		while(i < int(list[index].size()))
+		if (list.at(index).find(key) != std::string::npos)
+			foundMatch = true;
+		else
+			index++;
 	}
+	while(!foundMatch);
 
-return x;
+	if (!foundMatch) //checks to see if there was ever a match found
+		index = -1;
 
+	return index;
 }
-
-
-
 
