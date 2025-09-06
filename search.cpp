@@ -18,7 +18,7 @@ int linearSearch( const vector<string>& list,
 		else
 			index++;
 	}
-	while(!foundMatch);
+	while(!foundMatch && index < list.size());
 
 	if (!foundMatch) //checks to see if there was ever a match found
 		index = -1;

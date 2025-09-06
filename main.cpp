@@ -105,7 +105,13 @@ int main()
 
 	// Menu Display
 	topBotString = OutputStringOfCharacter(37);
-	cout << topBotString << endl << "*" << left << setw(11) << " " << "Linear Search" << setw(11) << " " << "*" << endl << topBotString << endl << "*" << setw(28) << "<S>earch" << " " << "*" << endl << "*" << setw(28) << "<A>dvanced search" << " " << "*" << endl << "*" << setw(28) << "<Q>uit" << " " << "*" << endl << topBotString << endl;
+	cout << topBotString << endl 
+		  << "*" << left << setw(11) << " " << "Linear Search" << setw(11) << " " << "*" 
+		  << endl << topBotString << endl 
+		  << "* " << setw(33) << "<S>earch" << " " << "*" 
+		  << endl << "* " << setw(33) << "<A>dvanced search" << " " << "*" 
+		  << endl << "* " << setw(33) << "<Q>uit" << " " << "*" 
+		  << endl << topBotString << endl;
 
 
 
@@ -173,6 +179,7 @@ int main()
 				if (invalidInput)
 				{
 					cout << endl << "Invalid input. Please enter one word and without spaces." << endl << endl;
+					invalidInput = false;
 				}
 				else
 				{
