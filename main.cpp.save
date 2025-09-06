@@ -188,6 +188,7 @@ int main()
 						searchInput[index] = titleChar;
 					}
 
+					// 
 					linearSearchIndex = linearSearch(bookTitlesVecListLowerCase, searchInput);
 					if (LinearSearchIndex == -1)
 					{
