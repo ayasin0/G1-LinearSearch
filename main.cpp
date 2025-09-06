@@ -105,13 +105,7 @@ int main()
 
 	// Menu Display
 	topBotString = OutputStringOfCharacter(37);
-	cout << topBotString << endl
-		  << "*" << left  << setw(11) << " " << "Linear Search" << setw(11) << " " << "*" << endl
-		  << topBotString << endl
-		  << "*" << setw(28) << "<S>earch" << " " << "*" << endl
-		  << "*" << setw(28) << "<A>dvanced search" << " " << "*" << endl
-		  << "*" << setw(28) << "<Q>uit" << " " << "*" << end
-		  << topBotString << endl;
+	cout << topBotString << endl << "*" << left << setw(11) << " " << "Linear Search" << setw(11) << " " << "*" << endl << topBotString << endl << "*" << setw(28) << "<S>earch" << " " << "*" << endl << "*" << setw(28) << "<A>dvanced search" << " " << "*" << endl << "*" << setw(28) << "<Q>uit" << " " << "*" << endl << topBotString << endl;
 
 
 
