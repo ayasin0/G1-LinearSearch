@@ -22,7 +22,7 @@ int main()
 	string         endOfProgramString; // OUT - end of program statement
 	string		   topBotString;
 	char           choiceInput;
-	bool           invalidInput;
+	bool           invalidChoice;
 	bool			   quit;
 	vector<string> bookTitlesVecList;
 	bookTitlesVecList.reserve(100);
@@ -31,7 +31,6 @@ int main()
 	string         title;
 	char           titleChar;
 	string			searchInput;
-	//int				linearSearchIndex;
 
 
 	// Class heading banner
@@ -61,26 +60,40 @@ int main()
 								"Assembly Language for x86 Processors (7th Edition)"};
 
 
-
-
-
-
-
-
-
-	// Words which start with the words containing "The" or "A" or "An" in the title are erased and inserted to end of the string of the title.
+	// Titles which start with the words containing "The" or "A" or "An" are erased and inserted to end of the string of the title.
 	// For example:
 	// "The Return of the King"   is changed to  "Return of the King, The"
 	// "An American Tragedy"      is changed to  "American Tragedy, An"
 	// "A Brief History of Time"  is changed to  "Brief History of Time, A"
-	CatalogTitleFormatVector(bookTitlesVecList);
 
+	//for(int index = 0; index < int(bookTitlesVecList.size()); index += 1)
+	{
+		//if ( (bookTitlesVecList[index]).substr(0, (bookTitlesVecList[index]).find(' ')) == "The" )
+		{
+			//(bookTitlesVecList[index]).erase(0, 4);
 
+			//(bookTitlesVecList[index]).insert(((bookTitlesVecList[index]).size()), ", The");
+		}
+
+		//if ( (bookTitlesVecList[index]).substr(0, (bookTitlesVecList[index]).find(' ')) == "A" )
+		{
+			//(bookTitlesVecList[index]).erase(0, 1);
+
+			//(bookTitlesVecList[index]).insert(((bookTitlesVecList[index]).size()), ", A");
+		}
+
+		//if ( (bookTitlesVecList[index]).substr(0, (bookTitlesVecList[index]).find(' ')) == "An" )
+		{
+			//(bookTitlesVecList[index]).erase(0, 3);
+
+		//	(bookTitlesVecList[index]).insert(((bookTitlesVecList[index]).size()), ", An");
+		}
+	}
+
+	AACR2TitleFormatVector(bookTitlesVecList);
 
 	// Sorts lists in alphabetical order
 	sort(bookTitlesVecList.begin(), bookTitlesVecList.end());
-
-
 
 	// Copies the book titles and changes all characters to lower case characters to a new vector
 	for (int indexVec = 0; indexVec < int(bookTitlesVecList.size()); indexVec += 1)
@@ -99,122 +112,62 @@ int main()
 
 
 
+	for(int index = 0; index < int(bookTitlesVecListLowerCase.size()); index += 1)
+	{
+		cout << bookTitlesVecListLowerCase[index] << endl;
+	}
+
+	for(int index = 0; index < int(bookTitlesVecList.size()); index += 1)
+	{
+		cout << bookTitlesVecList[index] << endl;
+	}
 
 
 
 
-	// Menu Display
+	// String of line of characters for menu border
 	topBotString = OutputStringOfCharacter(37);
+
+	// Menu display
 	cout << topBotString << endl
 		  << "*" << left  << setw(11) << " " << "Linear Search" << setw(11) << " " << "*" << endl
 		  << topBotString << endl
 		  << "*" << " <S>earch" << setw(26) << " " << "*" << endl
 		  << "*" << " <Q>uit"   << setw(28) << " " << "*" << endl
 		  << topBotString << endl;
-
-
-
-
-
-
-
-	//Input Prompt
 	quit = true;
-
-	do // while (quit)
+	invalidChoice = true;
+	do
 	{
-
-
-
-
-
-		// Input prompt for Choice and error check
 		do
 		{
-			invalidInput = false;
-
 			cout << setw(6) << "Choice: ";
    		cin.get(choiceInput);
 			choiceInput = toupper(choiceInput);
 
+			invalidChoice = (choiceInput != 'S' && choiceInput != 'Q');
 
-			if (choiceInput != 'S' && choiceInput != 'Q')
+			if (invalidChoice)
 			{
-				cout << endl << "Invalid choice. Please enter \"S\" to search or \"Q\" to quit." << endl << endl;
-				invalidInput = false;
+				cout << "Invalid choice. Please enter \"S\" to search or \"Q\" to quit." << endl;
+				invalidChoice = false;
 			}
 
 			cin.ignore(10000,'\n');
 
-		} while (invalidInput);
+		} while (invalidChoice);
 
 
-
-
-
-
-
-		// Input prompt for Search and error check
 		if(choiceInput == 'S')
 		{
-			do
-			{
-				invalidInput = false;
-
-				cout << setw(6) << "Search: ";
-				getline(cin, searchInput);
-
-				// Error check for any spaces in input
-				for (int index = 0; index < int(searchInput.size()); index += 1)
-				{
-					if (searchInput[index] == ' ')
-					{
-						invalidInput = true;
-					}
-				}
-
-
-				// Error Check Message
-				if (invalidInput)
-				{
-					cout << endl << "Invalid input. Please enter one word and without spaces." << endl << endl;
-				}
-				else
-				{
-					// Lower case loop for input string
-					for (int index = 0; index < int(searchInput.size()); index += 1)
-					{
-						titleChar          = tolower(searchInput[index]);
-						searchInput[index] = titleChar;
-					}
-
-					//linearSearchIndex = linearSearch(bookTitlesVecListLowerCase, searchInput);
-					cout << bookTitlesVecList[0][0];
-
-					cout << endl;
-				}
-
-			} while(invalidInput);
-
+			cout << setw(6) << "Search: ";
+			getline(cin, searchInput);
 		}
-
-
-
-
-
-
-
-
 
 	quit = (choiceInput != 'Q');
 	} while (quit);
 
-
-
-
-
-
-
+	
 	//End of Program Statement
 	endOfProgramString = EndOfProgramBanner();
 	cout << endOfProgramString  << endl << endl;

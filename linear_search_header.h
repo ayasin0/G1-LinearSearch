@@ -50,14 +50,17 @@ string OutputStringOfCharacter
  const char  CHARACTER = '*'); // IN - character for string
 
 
-void stats(int N, const int a[], int& mn, int& mx, long long& sum);
-
-
 string EndOfProgramBanner
 (const short  HEADING_COL    = 76,   // IN - asterisk string length
  const char   BORDER_CHAR    = '*',  // IN - border character
  const short  BORDER_SPACING = 1,    // IN - border formatting
  const short  LINE_LENGTH    = 76);  // IN - border length
+
+void CatalogTitleFormatVector
+(vector<string>& list);
+
+int linearSearch(const vector<string>& list,const string& key);
+
 
 #endif /* LINEAR_SEARCH_HEADER_H_ */
 

@@ -5,7 +5,7 @@
 *******************************************************************************/
 
 int linearSearch( const vector<string>& list,
-					   const string& key );
+					   const string& key )
 
 {
 /***************************************************************************
@@ -17,13 +17,20 @@ int linearSearch( const vector<string>& list,
 * VARIABLES
 ****************************************************************************/
 
+int x = 0;
+
 	for(int index = 0; index < int(list.size()); index += 1)
 	{
-		if (list[index].find(key) != string::npos)
+		int i = 0;
+		do
 		{
-			return index;
+			i++;
+			list[index].substr(0, 
 		}
+		while(i < int(list[index].size()))
 	}
+
+return x;
 
 }
 
