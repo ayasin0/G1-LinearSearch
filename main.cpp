@@ -108,8 +108,9 @@ int main()
 	cout << topBotString << endl
 		  << "*" << left  << setw(11) << " " << "Linear Search" << setw(11) << " " << "*" << endl
 		  << topBotString << endl
-		  << "*" << " <S>earch" << setw(26) << " " << "*" << endl
-		  << "*" << " <Q>uit"   << setw(28) << " " << "*" << endl
+		  << "*" << setw(28) << "<S>earch" << " " << "*" << endl
+		  << "*" << setw(28) << "<A>dvanced search" << " " << "*" << endl
+		  << "*" << setw(28) << "<Q>uit" << " " << "*" << end
 		  << topBotString << endl;
 
 
@@ -138,9 +139,9 @@ int main()
 			choiceInput = toupper(choiceInput);
 
 
-			if (choiceInput != 'S' && choiceInput != 'Q')
+			if (choiceInput != 'S' && choiceInput != 'Q' && choiceInput != 'A')
 			{
-				cout << endl << "Invalid choice. Please enter \"S\" to search or \"Q\" to quit." << endl << endl;
+				cout << endl << "Invalid choice. Please enter \"S\" to search, \"A\" for advanced search, or \"Q\" to quit." << endl << endl;
 				invalidInput = false;
 			}
 
@@ -155,7 +156,7 @@ int main()
 
 
 		// Input prompt for Search and error check
-		if(choiceInput == 'S')
+		if(choiceInput == 'S' || choiceInput == 'A') //Same code is used for regular search and advanced search
 		{
 			do
 			{
@@ -187,18 +188,25 @@ int main()
 						titleChar          = tolower(searchInput[index]);
 						searchInput[index] = titleChar;
 					}
-
-					linearSearchIndex = linearSearch(bookTitlesVecListLowerCase, searchInput);
-					if (linearSearchIndex == -1)
+					if (choiceInput == 'S')
 					{
-						cout << endl << searchInput << " was not found!";
+						linearSearchIndex = linearSearch(bookTitlesVecListLowerCase, searchInput);
+						if (linearSearchIndex == -1)
+						{
+							cout << endl << searchInput << " was not found!";
+						}
+						else
+						{
+							cout << "FOUND: " << bookTitlesVecList.at(linearSearchIndex) << endl << "Index: " << linearSearchIndex;
+						}
+
+						cout << endl;
 					}
 					else
 					{
-						cout << "FOUND: " << bookTitlesVecList.at(linearSearchIndex) << endl << "Index: " << linearSearchIndex;
+						advancedSearch(bookTitlesVecListLowerCase, bookTitlesVecList, searchInput);
 					}
 
-					cout << endl;
 				}
 
 			} while(invalidInput);

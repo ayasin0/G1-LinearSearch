@@ -26,3 +26,23 @@ int linearSearch( const vector<string>& list,
 	return index;
 }
 
+void advancedSearch(const vector<string>& list, const vector<string>& titles, const string& key)
+{
+	bool foundMatch = false;
+	const int TITLE_WIDTH = 85;
+
+	cout << "RESULTS:" << endl;
+	for (int i = 0; i < list.size(); i++) //Goes through the function list and prints every applicable member
+	{
+		if (list.at(i).find(key) != std::string::npos)
+		{
+			foundMatch = true;
+			cout << setw(TITLE_WIDTH) << titles.at(i) << "Index: " << i << endl;
+		}
+	}
+	if (!foundMatch)
+	{
+		cout << "No results, sorry!" << endl;
+	}
+	return;
+}

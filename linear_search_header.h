@@ -61,6 +61,8 @@ void CatalogTitleFormatVector
 
 int linearSearch(const vector<string>& list,const string& key);
 
+void advancedSearch(const vector<string>& list, const vector<string>& titles, const string& key);
+
 
 #endif /* LINEAR_SEARCH_HEADER_H_ */
 
