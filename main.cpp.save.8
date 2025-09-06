@@ -31,7 +31,7 @@ int main()
 	string         title;
 	char           titleChar;
 	string			searchInput;
-	int				linearSearchIndex;
+	//int				linearSearchIndex;
 
 
 	// Class heading banner
@@ -163,11 +163,7 @@ int main()
 
 				cout << setw(6) << "Search: ";
 				getline(cin, searchInput);
-				// This is for my system, since it does not leave a clean buffer
-				if (int(searchInput.back()) == 13)
-				{
-					searchInput.pop_back();
-				}
+
 				// Error check for any spaces in input
 				for (int index = 0; index < int(searchInput.size()); index += 1)
 				{
@@ -192,20 +188,9 @@ int main()
 						searchInput[index] = titleChar;
 					}
 
-					linearSearchIndex = 0;
-					linearSearchIndex = linearSearch (bookTitlesVecListLowerCase, searchInput);
-					//cout << bookTitlesVecList[0][0];
+					linearSearchIndex = linearSearch(bookTitlesVecListLowerCase, searchInput);
 
-					cout << linearSearchIndex << endl;
-					if(linearSearchIndex != -1)
-					{
-						cout << setw(6) << "FOUND: " << bookTitlesVecList[linearSearchIndex] << endl;
-					}
-					else
-					{
-
-						cout << "NOT FOUND" << endl;
-					}
+					cout << endl;
 				}
 
 			} while(invalidInput);

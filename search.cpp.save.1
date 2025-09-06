@@ -16,17 +16,21 @@ int linearSearch( const vector<string>& list,
 /***************************************************************************
 * VARIABLES
 ****************************************************************************/
-
+int x = 0;
 
 	
-	for(size_t index = 0; index < size_t (list.size()); ++index)
+	for(size_t index = 0; index < size_t(list.size()); index++)
 	{
-		if (list[index].find(key) != string::npos)
+		if( ((list[index]).find(key)) != string::npos)
 		{
-			return index;
+			x = index;
+		}
+		else
+		{
+			x = -1;
 		}
 	}
-return -1;
+return x;
 
 }
 
