@@ -1,5 +1,5 @@
 /***************************************************************************
-* PROGRAMMED BY : Ahmer Yasin & Seth Just & Thokozile Hambayi
+* PROGRAMMED BY : Ahmer Yasin & Thokozile Hambayi
 * CLASS         : CS1B
 * SECTION       : TTh 1:30pm
 * MODULE        : 1
@@ -8,6 +8,15 @@
 * PURPOSE       : The program performs a linear search over a list of book titles
 * DUE DATE      : 09/04/2025
 ****************************************************************************/
+/*
+  CS1B – G1: Linear Search
+  Partner A: Ahmer Yasin (ID) — role: driver
+  Partner B: Thokozile Hambayi (1275485) — role: function (Advanced Search)
+  Date: 2025‑09‑06
+  Purpose: Case‑insensitive substring linear search over book titles.
+  Build:   g++ -std=c++20 main.cpp CatalogTitleFormatVector.cpp EndOfProgramBanner.cpp OutputClassHeading.cpp 
+  OutputStringOfCharacter.cpp search.cpp -o search
+*/
 
 #include "linear_search_header.h"
 
@@ -105,12 +114,13 @@ int main()
 
 	// Menu Display
 	topBotString = OutputStringOfCharacter(37);
-	cout << topBotString << endl
-		  << "*" << left  << setw(11) << " " << "Linear Search" << setw(11) << " " << "*" << endl
-		  << topBotString << endl
-		  << "*" << " <S>earch" << setw(26) << " " << "*" << endl
-		  << "*" << " <Q>uit"   << setw(28) << " " << "*" << endl
-		  << topBotString << endl;
+	cout << topBotString << endl 
+		  << "*" << left << setw(11) << " " << "Linear Search" << setw(11) << " " << "*" 
+		  << endl << topBotString << endl 
+		  << "* " << setw(33) << "<S>earch" << " " << "*" 
+		  << endl << "* " << setw(33) << "<A>dvanced search" << " " << "*" 
+		  << endl << "* " << setw(33) << "<Q>uit" << " " << "*" 
+		  << endl << topBotString << endl;
 
 
 
@@ -138,9 +148,9 @@ int main()
 			choiceInput = toupper(choiceInput);
 
 
-			if (choiceInput != 'S' && choiceInput != 'Q')
+			if (choiceInput != 'S' && choiceInput != 'Q' && choiceInput != 'A')
 			{
-				cout << endl << "Invalid choice. Please enter \"S\" to search or \"Q\" to quit." << endl << endl;
+				cout << endl << "Invalid choice. Please enter \"S\" to search, \"A\" for advanced search, or \"Q\" to quit." << endl << endl;
 				invalidInput = false;
 			}
 
@@ -155,7 +165,7 @@ int main()
 
 
 		// Input prompt for Search and error check
-		if(choiceInput == 'S')
+		if(choiceInput == 'S' || choiceInput == 'A') //Same code is used for regular search and advanced search
 		{
 			do
 			{
@@ -182,6 +192,7 @@ int main()
 				if (invalidInput)
 				{
 					cout << endl << "Invalid input. Please enter one word and without spaces." << endl << endl;
+					invalidInput = false;
 				}
 				else
 				{
@@ -191,20 +202,23 @@ int main()
 						titleChar          = tolower(searchInput[index]);
 						searchInput[index] = titleChar;
 					}
-
-					linearSearchIndex = 0;
-					linearSearchIndex = linearSearch (bookTitlesVecListLowerCase, searchInput);
-					//cout << bookTitlesVecList[0][0];
-
-					cout << linearSearchIndex << endl;
-					if(linearSearchIndex != -1)
+					if (choiceInput == 'S')
 					{
-						cout << setw(6) << "FOUND: " << bookTitlesVecList[linearSearchIndex] << endl;
+						linearSearchIndex = linearSearch(bookTitlesVecListLowerCase, searchInput);
+						if (linearSearchIndex == -1)
+						{
+							cout << endl << searchInput << " was not found!";
+						}
+						else
+						{
+							cout << "FOUND: " << bookTitlesVecList.at(linearSearchIndex) << endl << "Index: " << linearSearchIndex;
+						}
+
+						cout << endl;
 					}
 					else
 					{
-
-						cout << "NOT FOUND" << endl;
+						advancedSearch(bookTitlesVecListLowerCase, bookTitlesVecList, searchInput);
 					}
 				}
 

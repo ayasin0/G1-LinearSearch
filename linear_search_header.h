@@ -23,7 +23,7 @@ using namespace std;
 string OutputClassHeading
  (const short  HEADING_COL    = 76,							                            // IN - asterisk string length
   const int    TITLE_COL      = 14,								                         // IN - setw for header titles
-  const string PROGRAMMER     = "Ahmer Yasin & Seth Just & Thokozile Hambayi",                                    // IN - name of programmer
+  const string PROGRAMMER     = "Ahmer Yasin & Thokozile Hambayi",                                    // IN - name of programmer
   const string CLASS          = "CS1B",                                           // IN - class title
   const string SECTION        = "TTh 1:30pm",              	                      // IN - day and time of class
   const string MODULE         = "1" ,                                             // IN - module number
@@ -60,6 +60,8 @@ void CatalogTitleFormatVector
 (vector<string>& list);
 
 int linearSearch(const vector<string>& list,const string& key);
+
+void advancedSearch(const vector<string>& list, const vector<string>& titles, const string& key);
 
 
 #endif /* LINEAR_SEARCH_HEADER_H_ */
