@@ -1,5 +1,5 @@
 /***************************************************************************
-* PROGRAMMED BY : Ahmer Yasin & Seth Just & Thokozile Hambayi
+* PROGRAMMED BY : Ahmer Yasin & Thokozile Hambayi
 * CLASS         : CS1B
 * SECTION       : TTh 1:30pm
 * MODULE        : 1
