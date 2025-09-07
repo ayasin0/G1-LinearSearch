@@ -18,6 +18,7 @@ int linearSearch( const vector<string>& list,
 	int index = 0; //Index of what title the program is currently on
 
 
+
 	do //Checks the key again against the current title
 	{
 		if (list.at(index).find(key) != std::string::npos)
@@ -29,6 +30,7 @@ int linearSearch( const vector<string>& list,
 
 	if (!foundMatch) //checks to see if there was ever a match found
 		index = -1;
+
 
 	return index;
 }
