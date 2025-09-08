@@ -1,7 +1,7 @@
 /*
   CS1B – G1: Linear Search
-  Partner A: Ahmer Yasin (ID) — role: driver
-  Partner B: Thokozile Hambayi (1275485) — role: function (Advanced Search)
+  Partner A: Ahmer Yasin — role: driver
+  Partner B: Thokozile Hambayi — role: function (Advanced Search)
   Date: 2025‑09‑06
   Purpose: Case‑insensitive substring linear search over book titles.
   Build:   g++ -std=c++20 main.cpp CatalogTitleFormatVector.cpp EndOfProgramBanner.cpp OutputClassHeading.cpp 
@@ -86,6 +86,7 @@ out << right;
 //Returns output as a string
 return out.str();
 }
+
 
 
 
